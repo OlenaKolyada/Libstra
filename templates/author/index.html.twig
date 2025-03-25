@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Authors{% endblock %}
+
+{% block body %}
+    <h1>Authors</h1>
+
+    <a href="{{ path('author_new') }}" class="btn btn-primary mb-3">Add new author</a>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Books</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.name }} {{ author.lastName }}</td>
+                    <td>{{ author.year }}</td>
+                    <td>{{ author.country }}</td>
+                    <td>
+                        {% for book in author.book %}
+                            {{ book.title }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{ path('author_show', {'id': author.id}) }}" class="btn btn-sm btn-info">View</a>
+                        <a href="{{ path('author_edit', {'id': author.id}) }}" class="btn btn-sm btn-warning">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No authors found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

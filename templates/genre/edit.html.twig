@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Genre{% endblock %}
+
+{% block body %}
+    <h1>Edit Genre</h1>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Genre Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ genre.name }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ path('genre_index') }}" class="btn btn-secondary">Back to list</a>
+    </form>
+{% endblock %}

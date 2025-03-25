@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Books{% endblock %}
+
+{% block body %}
+    <h1>Books</h1>
+
+    <a href="{{ path('book_new') }}" class="btn btn-primary mb-3">Add new book</a>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Language</th>
+                <th>Genres</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author ? book.author.name ~ ' ' ~ book.author.lastName : '' }}</td>
+                    <td>{{ book.year }}</td>
+                    <td>{{ book.language }}</td>
+                    <td>
+                        {% for genre in book.genre %}
+                            {{ genre.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{ path('book_show', {'id': book.id}) }}" class="btn btn-sm btn-info">View</a>
+                        <a href="{{ path('book_edit', {'id': book.id}) }}" class="btn btn-sm btn-warning">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">No books found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

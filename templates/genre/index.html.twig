@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genres{% endblock %}
+
+{% block body %}
+    <h1>Genres</h1>
+
+    <a href="{{ path('genre_new') }}" class="btn btn-primary mb-3">Add new genre</a>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Books</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for genre in genres %}
+                <tr>
+                    <td>{{ genre.name }}</td>
+                    <td>
+                        {% for book in genre.book %}
+                            {{ book.title }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{ path('genre_show', {'id': genre.id}) }}" class="btn btn-sm btn-info">View</a>
+                        <a href="{{ path('genre_edit', {'id': genre.id}) }}" class="btn btn-sm btn-warning">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No genres found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
