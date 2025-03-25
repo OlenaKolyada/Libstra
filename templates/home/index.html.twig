@@ -3,14 +3,14 @@
 {% block title %}Libstra - Home{% endblock %}
 
 {% block body %}
-    <h1 class="mb-4">Welcome to Libstra - Book Catalog</h1>
+    <h1 class="mb-4">Libstra - Home Book Catalog</h1>
 
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Books</h5>
-                    <p class="card-text">Total books: {{ books|length }}</p>
+                    <p class="card-text">Total books: {{ bookCollection|length }}</p>
                     <a href="{{ path('book_index') }}" class="btn btn-primary">View all books</a>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Authors</h5>
-                    <p class="card-text">Total authors: {{ authors|length }}</p>
+                    <p class="card-text">Total authors: {{ authorCollection|length }}</p>
                     <a href="{{ path('author_index') }}" class="btn btn-primary">View all authors</a>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Genres</h5>
-                    <p class="card-text">Total genres: {{ genres|length }}</p>
+                    <p class="card-text">Total genres: {{ genreCollection|length }}</p>
                     <a href="{{ path('genre_index') }}" class="btn btn-primary">View all genres</a>
                 </div>
             </div>

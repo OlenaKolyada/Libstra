@@ -17,10 +17,10 @@ class BookController extends AbstractController
     #[Route('/', name: 'book_index', methods: ['GET'])]
     public function index(DocumentManager $dm): Response
     {
-        $books = $dm->getRepository(Book::class)->findAll();
+        $bookCollection = $dm->getRepository(Book::class)->findAll();
 
         return $this->render('book/index.html.twig', [
-            'books' => $books,
+            'bookCollection' => $bookCollection,
         ]);
     }
 
@@ -34,6 +34,7 @@ class BookController extends AbstractController
             $book->setDescription($request->request->get('description'));
             $book->setCover($request->request->get('cover'));
             $book->setYear((int)$request->request->get('year'));
+            $book->setLanguage($request->request->get('language'));
 
             // Получаем автора
             $authorId = $request->request->get('author');
@@ -45,7 +46,11 @@ class BookController extends AbstractController
             }
 
             // Получаем жанры
-            $genreIds = $request->request->get('genres', []);
+            $genreIds = [];
+            if ($request->request->has('genreCollection')) {
+                $genreIds = $request->request->all()['genreCollection'];
+            }
+
             foreach ($genreIds as $genreId) {
                 $genre = $dm->getRepository(Genre::class)->find($genreId);
                 if ($genre) {
@@ -59,21 +64,30 @@ class BookController extends AbstractController
             return $this->redirectToRoute('book_index');
         }
 
-        $authors = $dm->getRepository(Author::class)->findAll();
-        $genres = $dm->getRepository(Genre::class)->findAll();
+        $authorCollection = $dm->getRepository(Author::class)->findAll();
+        $genreCollection = $dm->getRepository(Genre::class)->findAll();
 
         return $this->render('book/new.html.twig', [
             'book' => $book,
-            'authors' => $authors,
-            'genres' => $genres,
+            'authorCollection' => $authorCollection,
+            'genreCollection' => $genreCollection,
         ]);
     }
 
     #[Route('/{id}', name: 'book_show', methods: ['GET'])]
-    public function show(Book $book): Response
+    public function show(Book $book, DocumentManager $dm): Response
     {
+        // Фильтруем жанры, оставляя только существующие
+        $validGenres = [];
+        foreach ($book->getGenre() as $genre) {
+            if ($genre && $dm->contains($genre)) {
+                $validGenres[] = $genre;
+            }
+        }
+
         return $this->render('book/show.html.twig', [
             'book' => $book,
+            'validGenres' => $validGenres,
         ]);
     }
 
@@ -85,6 +99,7 @@ class BookController extends AbstractController
             $book->setDescription($request->request->get('description'));
             $book->setCover($request->request->get('cover'));
             $book->setYear((int)$request->request->get('year'));
+            $book->setLanguage($request->request->get('language'));
 
             // Получаем автора
             $authorId = $request->request->get('author');
@@ -98,7 +113,11 @@ class BookController extends AbstractController
             // Сбрасываем жанры и добавляем новые
             $book->getGenre()->clear();
 
-            $genreIds = $request->request->get('genres', []);
+            $genreIds = [];
+            if ($request->request->has('genreCollection')) {
+                $genreIds = $request->request->all()['genreCollection'];
+            }
+
             foreach ($genreIds as $genreId) {
                 $genre = $dm->getRepository(Genre::class)->find($genreId);
                 if ($genre) {
@@ -111,13 +130,13 @@ class BookController extends AbstractController
             return $this->redirectToRoute('book_index');
         }
 
-        $authors = $dm->getRepository(Author::class)->findAll();
-        $genres = $dm->getRepository(Genre::class)->findAll();
+        $authorCollection = $dm->getRepository(Author::class)->findAll();
+        $genreCollection = $dm->getRepository(Genre::class)->findAll();
 
         return $this->render('book/edit.html.twig', [
             'book' => $book,
-            'authors' => $authors,
-            'genres' => $genres,
+            'authorCollection' => $authorCollection,
+            'genreCollection' => $genreCollection,
         ]);
     }
 

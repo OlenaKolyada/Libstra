@@ -13,16 +13,16 @@ class Author
     private ?string $id = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $name;
+    private ?string $name = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $lastName;
+    private ?string $lastName = null;
 
     #[MongoDB\Field(type: 'int')]
-    private ?int $year;
+    private ?int $year = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $country;
+    private ?string $country = null;
 
     #[MongoDB\ReferenceMany(targetDocument: Book::class)]
     private ArrayCollection $book;
@@ -80,7 +80,7 @@ class Author
         $this->year = $year;
         return $this;
     }
-    public function getBooks(): Collection
+    public function getBook(): Collection
     {
         return $this->book;
     }

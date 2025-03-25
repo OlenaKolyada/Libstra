@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Document\Genre;
+use App\Document\Book;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +16,10 @@ class GenreController extends AbstractController
     #[Route('/', name: 'genre_index', methods: ['GET'])]
     public function index(DocumentManager $dm): Response
     {
-        $genres = $dm->getRepository(Genre::class)->findAll();
+        $genreCollection = $dm->getRepository(Genre::class)->findAll();
 
         return $this->render('genre/index.html.twig', [
-            'genres' => $genres,
+            'genreCollection' => $genreCollection,
         ]);
     }
 
@@ -42,10 +43,19 @@ class GenreController extends AbstractController
     }
 
     #[Route('/{id}', name: 'genre_show', methods: ['GET'])]
-    public function show(Genre $genre): Response
+    public function show(Genre $genre, DocumentManager $dm): Response
     {
+        // Фильтруем книги, оставляя только существующие
+        $validBooks = [];
+        foreach ($genre->getBook() as $book) {
+            if ($book && $dm->contains($book)) {
+                $validBooks[] = $book;
+            }
+        }
+
         return $this->render('genre/show.html.twig', [
             'genre' => $genre,
+            'validBooks' => $validBooks,
         ]);
     }
 

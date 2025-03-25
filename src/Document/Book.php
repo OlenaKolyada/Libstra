@@ -13,19 +13,19 @@ class Book
     private ?string $id = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $title;
+    private ?string $title = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $description;
+    private ?string $description = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $language;
+    private ?string $language = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $cover;
+    private ?string $cover = null;
 
     #[MongoDB\Field(type: 'int')]
-    private ?int $year;
+    private ?int $year = null;
 
 
     #[MongoDB\ReferenceOne(targetDocument: Author::class)]

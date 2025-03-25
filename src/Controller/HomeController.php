@@ -15,14 +15,14 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(DocumentManager $dm): Response
     {
-        $books = $dm->getRepository(Book::class)->findAll();
-        $authors = $dm->getRepository(Author::class)->findAll();
-        $genres = $dm->getRepository(Genre::class)->findAll();
+        $bookCollection = $dm->getRepository(Book::class)->findAll();
+        $authorCollection = $dm->getRepository(Author::class)->findAll();
+        $genreCollection = $dm->getRepository(Genre::class)->findAll();
 
         return $this->render('home/index.html.twig', [
-            'books' => $books,
-            'authors' => $authors,
-            'genres' => $genres,
+            'bookCollection' => $bookCollection,
+            'authorCollection' => $authorCollection,
+            'genreCollection' => $genreCollection,
         ]);
     }
 }

@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="433b7f48-f53c-485f-bfa4-76217832e072" name="Changes" comment="" />
+    <list default="true" id="433b7f48-f53c-485f-bfa4-76217832e072" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Libstra.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Libstra.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_mongodb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_mongodb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GenreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GenreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Document/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Document/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Document/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Document/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Document/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Document/Genre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/author/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/author/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/author/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/genre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/genre/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/genre/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/genre/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/genre/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/genre/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +41,9 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\php\php.exe">
     <include_path>
@@ -67,6 +98,17 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -77,18 +119,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Libstra/templates/author&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/wamp64/www/Libstra",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Libstra\templates\author" />
@@ -97,8 +140,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
-        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -112,7 +154,10 @@
       <updated>1742887117244</updated>
       <workItem from="1742887118274" duration="4733000" />
       <workItem from="1742896694404" duration="4000" />
-      <workItem from="1742905099058" duration="1924000" />
+      <workItem from="1742905099058" duration="2618000" />
+      <workItem from="1742912989812" duration="3653000" />
+      <workItem from="1742937157563" duration="1988000" />
+      <workItem from="1742940407983" duration="612000" />
     </task>
     <servers />
   </component>

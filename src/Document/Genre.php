@@ -13,7 +13,7 @@ class Genre
     private ?string $id = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $name;
+    private ?string $name = null;
 
 
     #[MongoDB\ReferenceMany(targetDocument: Book::class)]

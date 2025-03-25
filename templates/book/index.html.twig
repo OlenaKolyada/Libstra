@@ -20,7 +20,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for book in books %}
+            {% for book in bookCollection %}
                 <tr>
                     <td>{{ book.title }}</td>
                     <td>{{ book.author ? book.author.name ~ ' ' ~ book.author.lastName : '' }}</td>

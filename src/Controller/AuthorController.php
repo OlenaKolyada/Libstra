@@ -15,10 +15,10 @@ class AuthorController extends AbstractController
     #[Route('/', name: 'author_index', methods: ['GET'])]
     public function index(DocumentManager $dm): Response
     {
-        $authors = $dm->getRepository(Author::class)->findAll();
+        $authorCollection = $dm->getRepository(Author::class)->findAll();
 
         return $this->render('author/index.html.twig', [
-            'authors' => $authors,
+            'authorCollection' => $authorCollection,
         ]);
     }
 
@@ -45,10 +45,19 @@ class AuthorController extends AbstractController
     }
 
     #[Route('/{id}', name: 'author_show', methods: ['GET'])]
-    public function show(Author $author): Response
+    public function show(Author $author, DocumentManager $dm): Response
     {
+        // Фильтруем книги, оставляя только существующие
+        $validBooks = [];
+        foreach ($author->getBook() as $book) {
+            if ($book && $dm->contains($book)) {
+                $validBooks[] = $book;
+            }
+        }
+
         return $this->render('author/show.html.twig', [
             'author' => $author,
+            'validBooks' => $validBooks,
         ]);
     }
 

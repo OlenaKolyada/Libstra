@@ -35,7 +35,7 @@
             <label for="author" class="form-label">Author</label>
             <select class="form-select" id="author" name="author">
                 <option value="">Select author</option>
-                {% for author in authors %}
+                {% for author in authorCollection %}
                     <option value="{{ author.id }}" {% if book.author and book.author.id == author.id %}selected{% endif %}>
                         {{ author.name }} {{ author.lastName }}
                     </option>
@@ -46,9 +46,9 @@
         <div class="mb-3">
             <label class="form-label">Genres</label>
             <div>
-                {% for genre in genres %}
+                {% for genre in genreCollection %}
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="genres[]" id="genre_{{ genre.id }}"
+                        <input class="form-check-input" type="checkbox" name="genreCollection[]" id="genre_{{ genre.id }}"
                                value="{{ genre.id }}"
                                {% if book.genre.contains(genre) %}checked{% endif %}>
                         <label class="form-check-label" for="genre_{{ genre.id }}">{{ genre.name }}</label>

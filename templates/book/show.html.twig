@@ -17,18 +17,19 @@
         <div class="col-md-8">
             <p><strong>Author:</strong>
                 {% if book.author %}
-                    {{ book.author.name }} {{ book.author.lastName }}
+                    <a href="{{ path('author_show', {'id': book.author.id}) }}">{{ book.author.name }} {{ book.author.lastName }}</a>
                 {% else %}
                     Unknown
                 {% endif %}
             </p>
 
             <p><strong>Year:</strong> {{ book.year ?: 'Unknown' }}</p>
+            <p><strong>Language:</strong> {{ book.language ?: 'Unknown' }}</p>
 
             <p><strong>Genres:</strong>
-                {% if book.genre|length > 0 %}
-                    {% for genre in book.genre %}
-                        {{ genre.name }}{% if not loop.last %}, {% endif %}
+                {% if validGenres|length > 0 %}
+                    {% for genre in validGenres %}
+                        <a href="{{ path('genre_show', {'id': genre.id}) }}">{{ genre.name }}</a>{% if not loop.last %}, {% endif %}
                     {% endfor %}
                 {% else %}
                     Not specified
